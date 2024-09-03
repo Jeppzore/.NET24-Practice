@@ -7,7 +7,8 @@
 //Indexering04();
 //Indexering05();
 //Indexering06();
-Indexering07();
+//Indexering07();
+Indexering08();
 
 //Indexering10();
 
@@ -165,7 +166,7 @@ static void Indexering07()
 {
     Console.WriteLine("Mata in 7 ord: ");
     string[] ord = new string[7];
-    
+
     //Console.WriteLine($"{ord[ordInput]}");
 
     for (int i = 0; i < 7; i++)
@@ -174,8 +175,43 @@ static void Indexering07()
         ord[i] = ordInput;
     }
     Console.WriteLine("**********");
-    Console.WriteLine($"{ord[6]} {ord[5]} {ord[4]} {ord[3]} {ord[2]} {ord[1]} {ord[0]}");
+
+    for (int i = 6; i >= 0; i--)
+    {
+        Console.WriteLine(ord[i]);
+
+        // Gammal kod som inte följer "DRY" - ersatt med ovan for-loop
+        // Console.WriteLine($"{ord[6]} {ord[5]} {ord[4]} {ord[3]} {ord[2]} {ord[1]} {ord[0]}");
+    }
+
+    //8. Fördröjd utskrift
+    // Skapa ett program som ber användaren att skriva in ett ord. Sedan ett till, och ett till i all evighet.
+    // Varje gång man skrivit in ett ord så ska programmet skriva ut det ord man skrev 10 inmatningar tidigare.
+    // Men om man inte skrivit in 10 ord än så kan den istället skriva just det: “Du har inte skrivit in 10 ord än.”
 }
+
+    static void Indexering08()
+{
+    List<string> ordlista = new List<string>();
+
+    Console.WriteLine("Nu ska vi bygga en ordlista! (avsluta med ctrl + c");
+
+    while (true)
+    {
+        Console.Write("Skriv ett ord: ");
+        ordlista.Add(Console.ReadLine());
+        if (ordlista.Count < 10)
+        {
+            Console.WriteLine("Du har inte skrivit in 10 ord än.");
+        }
+        else
+        {
+            Console.WriteLine(ordlista[ordlista.Count - 10]);
+        }
+    }
+
+}
+
 
 // 10. Färgade bokstäver 
 static void Indexering10()
