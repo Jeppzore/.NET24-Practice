@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Övningsuppgifter", "Övningsuppgifter\Övningsuppgifter.csproj", "{58498DE9-7C8B-469F-8746-ED96222D00B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indexering", "Övningsuppgifter\Indexering.csproj", "{58498DE9-7C8B-469F-8746-ED96222D00B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Variabler", "Variabler", "{97E6D644-FE7E-494B-9316-684BB8390C7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Variabler", "Variabler\Variabler.csproj", "{32589AB4-C0FD-4723-8961-CB340EF37DB9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Loopar", "Loopar", "{43BD7E7B-0D5E-46B6-9989-7DAC40B0A3F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loopar", "Loopar\Loopar.csproj", "{FF4974C9-A246-449A-BE9A-FA5B542A1128}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Indexering", "Indexering", "{2EBF2B86-6D28-4288-B69A-2F403C90EA46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +25,22 @@ Global
 		{58498DE9-7C8B-469F-8746-ED96222D00B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58498DE9-7C8B-469F-8746-ED96222D00B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58498DE9-7C8B-469F-8746-ED96222D00B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32589AB4-C0FD-4723-8961-CB340EF37DB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32589AB4-C0FD-4723-8961-CB340EF37DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32589AB4-C0FD-4723-8961-CB340EF37DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32589AB4-C0FD-4723-8961-CB340EF37DB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF4974C9-A246-449A-BE9A-FA5B542A1128}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF4974C9-A246-449A-BE9A-FA5B542A1128}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF4974C9-A246-449A-BE9A-FA5B542A1128}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF4974C9-A246-449A-BE9A-FA5B542A1128}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{58498DE9-7C8B-469F-8746-ED96222D00B3} = {2EBF2B86-6D28-4288-B69A-2F403C90EA46}
+		{32589AB4-C0FD-4723-8961-CB340EF37DB9} = {97E6D644-FE7E-494B-9316-684BB8390C7E}
+		{FF4974C9-A246-449A-BE9A-FA5B542A1128} = {43BD7E7B-0D5E-46B6-9989-7DAC40B0A3F8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {867A7F58-2E0A-4A3F-9589-C76CFC0992F5}
