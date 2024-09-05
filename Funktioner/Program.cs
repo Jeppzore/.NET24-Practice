@@ -18,8 +18,8 @@ static void Funktioner01(string firstName, string lastName)
 static string Funktioner02(string firstName, string lastName)
 {
     string fullName = firstName + lastName;
-    return fullName;
     Console.WriteLine(fullName);
+    return fullName;
 }
 
 
