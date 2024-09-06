@@ -1,7 +1,7 @@
 ﻿//Funktioner01("Jesper", "Johansson");
 //Funktioner02("Jesper" , "Alveberg");
 //Funktioner03("Hejsan", 5);
-Funktioner04();
+//Funktioner04();
 
 
 
