@@ -2,11 +2,9 @@
 //Labb02();
 //Labb03();
 //Labb04();
-using System.Drawing;
-using System.Text;
-
 //Labb05();
-Labb005();
+//labb06();
+labb07();
 
 
 
@@ -114,35 +112,20 @@ static void Labb04()
 //Utgå från strängen "Hello world". Skriv ut bokstav för bokstav.
 //Om två tecken på rad är samma så ska dessa vara grön färg.
 //Övriga bokstäver är vita/grå.
+
 static void Labb05()
 {
-    string myString = "Hello world";
+    string myString = "Hello world!";
 
-    foreach (char c in myString) 
-    {
-
-        if (myString[2] == myString[3])
+        for (int i = 0; i < myString.Length; i++)
         {
-            Console.ForegroundColor = (c == 'l' ? ConsoleColor.Green : ConsoleColor.Gray);
-            
+
+            if(i == myString.Length -1)
+        {
+            Console.Write(myString[i]);
+            continue;
         }
 
-        else
-        {
-            Console.ForegroundColor = ConsoleColor.Gray;     
-        }
-
-        Console.Write(c);
-
-    }
-}
-
-static void Labb005()
-{
-    string myString = "Hello world";
-
-        for (int i = 0; i < myString.Length-1; i++)
-        {
             char nextChar = myString[i + 1];
             char currentChar = myString[i];
 
@@ -158,8 +141,86 @@ static void Labb005()
             {
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write(myString[i]);
-                
             }
+        }
+
+    
+}
+
+//.6 Bokstav för bokstav - grön substring
+//Utgå från strängen "How much wood would a woodchuck chuck if a woodchuck could chuck wood?", samt den mindre strängen "oo".
+//Skriv ut den långa strängen bokstav för bokstav. Varje gång den mindre strängen förekommer (två 'o' på raken)
+//så ska dessa vara med grön färg. Övriga bokstäver är vita/grå.
+
+static void labb06()
+{
+    string myString1 = "How much wood would a woodchuck chuck if a woodchuck could chuck wood?";
+
+    for (int i = 0; i < myString1.Length; i++)
+    {
+
+        if (i == myString1.Length - 1)
+        {
+            Console.Write(myString1[i]);
+            continue;
+        }
+
+        char nextChar = myString1[i + 1];
+        char currentChar = myString1[i];
+
+
+        if (nextChar == 'o' && currentChar == 'o')
+        {
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write($"{currentChar}{nextChar}");
+            i++;
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(myString1[i]);
+        }
+
     }
 
+}
+
+//7. Bokstav för bokstav - grön substring 2
+// Samma som uppgift 6, men den mindre strängen är "chuck" istället för "oo".
+// D.v.s. alla gånger "chuck" förekommer i den längre strängen skrivs dessa med grön text.
+static void labb07()
+{
+    string myString = "How much wood would a woodchuck chuck if a woodchuck could chuck wood?";
+
+    for (int i = 0; i < myString.Length; i++)
+    {
+
+        if (i == myString.Length - 5)
+        {
+            Console.Write(myString[i]);
+            continue;
+        }
+
+        char firstChar = myString[i];
+        char secondChar = myString[i + 1];
+        char thirdChar = myString[i + 2];
+        char fourthChar = myString[i + 3];
+        char fifthChar = myString[i + 4];
+
+
+        if (firstChar == 'c' && secondChar == 'h' && thirdChar == 'u' && fourthChar == 'c' && fifthChar == 'k')
+        {
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write($"{firstChar}{secondChar}{thirdChar}{fourthChar}{fifthChar}");
+            i+= 5;
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(myString[i]);
+        }
+
+    }
 }
