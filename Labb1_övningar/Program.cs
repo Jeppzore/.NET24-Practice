@@ -4,7 +4,10 @@
 //Labb04();
 //Labb05();
 //labb06();
-labb07();
+//Labb07();
+//Labb08();
+Labb09();
+
 
 
 
@@ -154,7 +157,7 @@ static void Labb05()
 
 static void labb06()
 {
-    string myString1 = "How much wood would a woodchuck chuck if a woodchuck could chuck wood?";
+    string myString1 = "How much wood would a woodchuck chuck if a woodchuck could chuck wood??";
 
     for (int i = 0; i < myString1.Length; i++)
     {
@@ -189,38 +192,128 @@ static void labb06()
 //7. Bokstav för bokstav - grön substring 2
 // Samma som uppgift 6, men den mindre strängen är "chuck" istället för "oo".
 // D.v.s. alla gånger "chuck" förekommer i den längre strängen skrivs dessa med grön text.
-static void labb07()
+
+static void Labb07()
 {
-    string myString = "How much wood would a woodchuck chuck if a woodchuck could chuck wood?";
 
-    for (int i = 0; i < myString.Length; i++)
+    string userInput = "How much wood would a woodchuck chuck if a woodchuck could chuck wood?";
+    string storedString = string.Empty;
+
+    for (int i = 0; i < userInput.Length; i++)
     {
-
-        if (i == myString.Length - 5)
+        storedString += userInput[i];
+        if (storedString.Contains("chuck"))
         {
-            Console.Write(myString[i]);
-            continue;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write(storedString);
+            storedString = string.Empty;
+        }
+        else if (storedString.Contains(" ") || i == userInput.Length - 1)
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(storedString);
+            storedString = string.Empty;
         }
 
-        char firstChar = myString[i];
-        char secondChar = myString[i + 1];
-        char thirdChar = myString[i + 2];
-        char fourthChar = myString[i + 3];
-        char fifthChar = myString[i + 4];
+    }
 
+    //**********************TIDIGARE NOTES***************************//
+
+    //string myString = "How much wood would a woodchuck chuck if a woodchuck could chuck wood?";
+    //string newString = myString.Substring(26, 5); //newString får värdet "chuck"
+    //string[] chuck = new string[4]; //Lagrar alla "chuck" i myString
+
+    /*string myString1 = "How much wood would a woodchuck chuck if a woodchuck could chuck wood??";
+
+    for (int i = 0; i < myString1.Length; i++)
+    {
+
+        if (i == myString1.Length - 4)
+        {
+            Console.Write($"{myString1[i]}{myString1[i + 1]}{myString1[i + 2]}{myString1[i +3 ]} ");
+            break;
+        }
+
+        char firstChar = myString1[i];
+        char secondChar = myString1[i + 1];
+        char thirdChar = myString1[i + 2];
+        char fourthChar = myString1[i + 3];
+        char fifthChar = myString1[i + 4];
 
         if (firstChar == 'c' && secondChar == 'h' && thirdChar == 'u' && fourthChar == 'c' && fifthChar == 'k')
         {
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write($"{firstChar}{secondChar}{thirdChar}{fourthChar}{fifthChar}");
-            i+= 5;
+            i+=4;
         }
         else
         {
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write(myString[i]);
+            Console.Write(myString1[i]);
+        }
+
+
+    }*/
+
+    //**********************TIDIGARE NOTES***************************//
+
+}
+
+//8.Bokstav för bokstav - grön substring 3
+//Samma som uppgift 6 igen, men denna gången kan användaren mata in den kortare strängen,
+//alltså valfri text som ska sökas (färgas grön) i den längre texten.
+static void Labb08()
+{
+    Console.WriteLine("Ange en bokstav eller ord ur texten: How much wood would a woodchuck chuck if a woodchuck could chuck wood?");
+    string userInput = "How much wood would a woodchuck chuck if a woodchuck could chuck wood?";
+    string storedString = string.Empty;
+    string userInput2 = Console.ReadLine();
+
+    for (int i = 0; i < userInput.Length; i++)
+    {
+        storedString += userInput[i];
+        if (storedString.Contains(userInput2))
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write(storedString);
+            storedString = string.Empty;
+        }
+        else if (storedString.Contains(" ") || i == userInput.Length - 1)
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(storedString);
+            storedString = string.Empty;
         }
 
     }
 }
+
+//.9 Bokstavspyramid
+//Utgå från strängen "Hello world!". Gör ett program som skriver ut första bokstaven en gång på första raden.
+//Andra bokstaven 2 gånger på andra raden. Tredje 3 gånger på nästa rad osv. Alltså:
+//H
+//ee
+//lll
+//... etc
+
+//Behöver ha en loop(j) i en loop (i) som plusar med 1 för varje storedString som skrivs ut och skriver ut den senaste storedString * värdet på j
+
+static void Labb09()
+{
+    string myString = "Hello world!";
+    string storedString = string.Empty;
+
+    for (int i = 0; i < myString.Length; i++)
+    {
+        storedString += myString[i];
+        for (int j = 0; j < storedString.Length; j++) 
+        
+        {
+            Console.Write(storedString[i]);
+        }
+        Console.WriteLine();
+
+    }
+}
+
