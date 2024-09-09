@@ -6,7 +6,11 @@
 //labb06();
 //Labb07();
 //Labb08();
-Labb09();
+//Labb09();
+//Labb10();
+//Labb11();
+//Labb12();
+Labb13();
 
 
 
@@ -302,18 +306,201 @@ static void Labb08()
 static void Labb09()
 {
     string myString = "Hello world!";
-    string storedString = string.Empty;
 
     for (int i = 0; i < myString.Length; i++)
     {
-        storedString += myString[i];
-        for (int j = 0; j < storedString.Length; j++) 
+        for (int j = 0; j <= i; j++) 
         
         {
-            Console.Write(storedString[i]);
+            Console.Write(myString[i]);
         }
         Console.WriteLine();
-
     }
 }
 
+//10. Ordpyramid
+//Utgå från strängen “How much wood would a woodchuck chuck if a woodchuck could chuck wood?”.
+//Gör ett program som skriver ut första ordet en gång på första raden; andra ordet två gånger på nästa rad.
+//Tredje ordet tre gånger på nästa. etc. alltså:
+static void Labb10()
+{
+    try
+    {
+    string myString = "How much wood would a woodchuck chuck if a woodchuck could chuck wood?";
+    string storedString = string.Empty;
+    string[] myStringWords = myString.Split(' ');
+
+    for (int i = 0; i < myStringWords.Length; i++)
+    {
+        storedString = myStringWords[i];
+        for (int j = 0;j <= i; j++)
+        {
+            Console.Write($"{storedString}");
+        }
+
+        Console.WriteLine();
+    }
+
+    }
+    catch(Exception ex)
+    {
+        Console.WriteLine($"Något fel inträffade: {ex.Message}");
+    }
+}
+
+//11. Ordpyramid 2
+//Utgå från strängen “How much wood would a woodchuck chuck if a woodchuck could chuck wood?”.
+//Gör ett program som på första raden skriver ut första ordet. På nästa rad skriver ut de två första orden,
+//sedan de tre första orden på nästa rad o.s.v till man kommit till raden som skriver ut hela meningen. Alltså:
+//How
+//How much
+//How much wood
+//... etc
+
+static void Labb11()
+{
+    try
+    {
+        string myString = "How much wood would a woodchuck chuck if a woodchuck could chuck wood?";
+        string storedString = string.Empty;
+        string[] myStringWords = myString.Split(' ');
+
+        for (int i = 0; i < myStringWords.Length; i++)
+        {
+
+            for (int j = 0; j <= i; j++)
+            {
+                storedString = myStringWords[j];
+                Console.Write($"{storedString} ");
+            }
+
+            Console.WriteLine();
+        }
+
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Något fel inträffade: {ex.Message}");
+    }
+}
+
+//12. Rödmarkerade ord
+//Utgå från samma sträng igen, men denna gång ska programmet skriva ut hela strängen på varje rad.
+//På första raden ska första ordet vara rött (övriga vita), på andra raden ska andra ordet vara rött.
+//På tredje raden ska tredje vara rött osv. Alltså:
+//How much wood would a woodchuck chuck if a woodchuck could chuck wood?
+//How much wood would a woodchuck chuck if a woodchuck could chuck wood?
+//How much wood would a woodchuck chuck if a woodchuck could chuck wood?
+//... etc
+static void Labb12()
+{
+
+    try
+    {
+        string myString = "How much wood would a woodchuck chuck if a woodchuck could chuck wood?";
+        string[] myStringWords = myString.Split(' ');
+
+        for (int i = 0; i < myStringWords.Length; i++)
+        {
+
+            for (int j = 0; j < myStringWords.Length; j++)
+            {
+                if(j == i)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+
+                Console.Write($"{myStringWords[j]} ");
+
+            }
+
+            Console.WriteLine();
+        }
+
+    }
+    catch (Exception ex )
+    {
+        Console.WriteLine($"OOpsie! Något fel inträffade: {ex.Message}");
+    }
+
+}
+
+//13. Rödmarkerade bokstäver
+//Utgå från strängen "abcdefghijklmnopqrstuvwxyz". Hela strängen skrivs ut på varje rad. På första raden är de 5 första tecknen röda.
+//På nästa rad är “bcdef” röda, sedan “cedfg” osv.. alltså alltid 5 tecken, men de flyttas ett steg åt höger för varje rad,
+//tills sista raden har “vwxyz” rödfärgad. Alltså:
+
+//abcdefghijklmnopqrstuvwxyz
+//abcdefghijklmnopqrstuvwxyz
+//abcdefghijklmnopqrstuvwxyz
+//... etc
+
+static void Labb13()
+{
+    try
+    {
+        string myString = "abcdefghijklmnopqrstuvwxyz";
+        string myStoredString = string.Empty;
+        //myString.ToCharArray();
+
+
+        for (int i = 0; i < myString.Length; i++)
+        {
+
+            for(int j = 0; j < 5; j++)
+            {
+                myStoredString += myString[i];
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write(myString[j]);
+
+                for(int k = 0; k <= myStoredString[j-1]; k++)
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write(myString[k]);
+
+                }
+            }
+
+            Console.WriteLine();
+
+        }
+
+
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"OOpsie! Något fel inträffade: {ex.Message}");
+    }
+
+}
+
+/*string myString = "abcdefghijklmnopqrstuvwxyz";
+//string[] myStringWords = myString.Split('a', 5);
+string myStoredString = string.Empty;
+
+for (int i = 0; i < myString.Length; i++)
+{
+    myStoredString += myString[i];
+    for (int j = 0; j < myStoredString.Length; j++)
+    {
+        if (j == i)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        Console.Write($"{myStoredString[i]}");
+        //myStoredString = string.Empty;
+
+
+    }
+
+    Console.WriteLine(myString);
+}*/
