@@ -10,7 +10,8 @@
 //Labb10();
 //Labb11();
 //Labb12();
-Labb13();
+//Labb13();
+Labb14();
 
 
 
@@ -394,7 +395,6 @@ static void Labb11()
 //... etc
 static void Labb12()
 {
-
     try
     {
         string myString = "How much wood would a woodchuck chuck if a woodchuck could chuck wood?";
@@ -443,64 +443,101 @@ static void Labb13()
 {
     try
     {
-        string myString = "abcdefghijklmnopqrstuvwxyz";
-        string myStoredString = string.Empty;
-        //myString.ToCharArray();
-
-
-        for (int i = 0; i < myString.Length; i++)
+        string alphabet = "abcdefghijklmnopqrstuvwxyz";
+        
+        for (int i = 0; i < alphabet.Length - 4; i++)
         {
+            string partOfAlphabet = alphabet.Substring(i, 5);
 
-            for(int j = 0; j < 5; j++)
+            for (int j = 0; j < alphabet.Length; j++)
             {
-                myStoredString += myString[i];
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write(myString[j]);
-
-                for(int k = 0; k <= myStoredString[j-1]; k++)
+                if (j == i)
                 {
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write(myString[k]);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write(partOfAlphabet);
+                    j += 4;
 
                 }
+                else if (j < 26)
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write($"{alphabet[j]}");
+                }
+                
             }
-
             Console.WriteLine();
-
         }
-
 
     }
     catch (Exception ex)
     {
         Console.WriteLine($"OOpsie! Något fel inträffade: {ex.Message}");
     }
-
 }
 
-/*string myString = "abcdefghijklmnopqrstuvwxyz";
-//string[] myStringWords = myString.Split('a', 5);
-string myStoredString = string.Empty;
-
-for (int i = 0; i < myString.Length; i++)
+//14. Rödmarkerade bokstäver 2
+// Användaren matar in valfri sträng. Programmet skriver ut hela strängen bokstav för bokstav.
+// Alla bokstäverna är röda fram tills du stöter på ett tecken som är samma som första tecknet i strängen.
+// Därefter skriver den ut resten av bokstäverna med vit/grå färg. Några exempel vid olika inmatningar/körningar:
+//ajdfhvajhdfd
+//hhfgijff
+//fjpdpog
+static void Labb14()
 {
-    myStoredString += myString[i];
-    for (int j = 0; j < myStoredString.Length; j++)
+
+    try 
     {
-        if (j == i)
+        Console.Write("Vänligen skriv in en valfri sträng: ");
+        string input = Console.ReadLine();
+
+        for (int i = 0; i < input.Length; i++)
         {
             Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write(input[i]);
         }
-        else
-        {
-            Console.ForegroundColor = ConsoleColor.White;
-        }
-
-        Console.Write($"{myStoredString[i]}");
-        //myStoredString = string.Empty;
-
 
     }
+    catch (Exception ex)
+    {
+        Console.Write($"Oops! Något gick fel: {ex.Message}");
+    }
+}
 
-    Console.WriteLine(myString);
+
+
+/*try
+{
+
+    string alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+    for (int i = 0; i < alphabet.Length - 1; i++)
+    {
+        string partOfAlphabet = alphabet.Substring(i, 5);
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write(partOfAlphabet);
+
+        if (i < alphabet.Length)
+        {
+
+            for (int j = 5; j < alphabet.Length; j++)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write(alphabet[j + i]);
+
+
+                if (j == alphabet.Length - 1)
+                {
+                    //int loopTracker = 0;
+
+                    Console.WriteLine();
+                    Console.Write(alphabet[i]);
+
+                }
+            }
+        }
+    }
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Oj då, något fel inträffade: {ex.Message}");
 }*/
