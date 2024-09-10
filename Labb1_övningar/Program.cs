@@ -11,7 +11,8 @@
 //Labb11();
 //Labb12();
 //Labb13();
-Labb14();
+//Labb14();
+Labb15();
 
 
 
@@ -487,19 +488,80 @@ static void Labb14()
 
     try 
     {
-        Console.Write("Vänligen skriv in en valfri sträng: ");
-        string input = Console.ReadLine();
+        string input = "asdfghjklasdfghjklasdfghjklasdfghjkl";
+        char firstChar = input[0];
 
         for (int i = 0; i < input.Length; i++)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
+            if (input[i] == firstChar)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+            }
+
             Console.Write(input[i]);
+
+            if (i > 0 && input[i] == firstChar) //Körs bara en gång och när den skall sluta skriva rött
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                i++; //i++ för att inte skriva ut samma bokstav två gånger (röd och vit) när vi börjar skriva ut den vita. Funkar då denna bara körs 1 gång
+                Console.Write(input[i]);
+                firstChar = ' '; // För att programmet skall sluta leta efter fler firstChar att skriva ut i rött ändras värdet en gång
+
+            }
         }
 
     }
     catch (Exception ex)
     {
         Console.Write($"Oops! Något gick fel: {ex.Message}");
+    }
+}
+
+//15. Rödmarkerade bokstäver 3
+//Användaren matar in valfri sträng. Programmet skriver sedan ut en hela strängen flera gånger.
+//På första raden börjar den skriva med röd färg på första bokstaven och fram tills den hittar samma bokstav igen.
+//På andra raden börjar den skriva med röd färg på andra bokstaven och fram tills den hittar samma bokstav igen.
+//På tredje raden börjar den skriva med röd text på tredje bokstaven och fram tills den hittar samma igen...
+//etc. Om man t.ex matar in “ajdfhvajhdfd” blir det då:
+//ajdfhvajhdfd
+//ajdfhvajhdfd
+//... etc
+
+static void Labb15()
+{
+
+    try
+    {
+
+        string input = "ajdfhvajhdfd";
+
+        for (int i = 0; i < input.Length; i++)
+        {
+            char firstChar = input[i];
+
+            for (int j = 0; j < input.Length; j++)
+            {
+                if (j == i && input[j] == firstChar)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                }
+                Console.Write(input[j]);
+
+                if (input[j] == firstChar && j > i)
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+
+            }
+
+            Console.WriteLine();
+            Console.ResetColor();
+
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Oops, något gick jävligt fel: {ex.Message}");
     }
 }
 
