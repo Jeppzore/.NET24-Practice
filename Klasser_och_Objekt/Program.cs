@@ -19,7 +19,7 @@ Person mother = new Person();
 mother.firstName = "Lena";
 mother.lastName = "Johansson";
 
-myself.mother = mother;
+myself.mother = null; //7.
 
 Person father = new Person();
 father.firstName = "Mikael";
@@ -28,17 +28,33 @@ father.lastName = "Alveberg";
 myself.father = father;
 
 Console.WriteLine($"Mitt namn är: {myself.GetFullName()}");
-Console.WriteLine($"Min mammas namn är: {myself.mother.GetFullName()}");
-Console.WriteLine($"Min pappas namn är: {myself.father.GetFullName()}");
+//Console.WriteLine($"Min mammas namn är: {myself.mother.GetFullName()}");
+//Console.WriteLine($"Min pappas namn är: {myself.father.GetFullName()}");
 Console.WriteLine("**********");
 Console.WriteLine(myself.GetSelfAndParents());
+Console.WriteLine("**********");
+myself.SetLength(1.82); //8.
+Console.WriteLine(myself.GetLength()); //8.
+Console.WriteLine("**********");
+myself.SetWeight(91.3); //9.
+Console.WriteLine($"Min vikt är: {myself.GetWeight()} kg"); //8.
+Console.WriteLine($"Mitt BMI är min vikt ({myself.GetWeight()}kg), dividerat med min längd ({myself.GetLength()}m)^2 = {myself.GetBMI()}"); //8.
+
+
+
+
+
+
 
 
 class Person
 {
-    public string firstName = "Default name";
-    public string lastName = "Default name";
-    public string fullName = "Default name";
+    public string firstName;
+    public string lastName;
+    public string fullName;
+
+    private double length; //8.
+    private double weight; //9.
 
     // Varje Person kan ha två referenser till Person-Objekt (father, mother)
     public Person father;
@@ -60,29 +76,64 @@ class Person
     public string GetFullNameReversed() // Returnerar hela namnet baklänges
     {
         char[] fullName = this.GetFullName().ToCharArray();
-        Array.Reverse( fullName );
-        this.fullName = new string (fullName);
+        Array.Reverse(fullName);
+        this.fullName = new string(fullName);
 
         return this.fullName;
     }
 
-    //7.
-    // Lägg till en public string GetSelfAndParents() som returnerar en sträng på formatet
-    // "Ditt Namn - Mamma: Mammans Namn - Pappa: Pappans namn". Om mammans eller pappans namn
-    // saknas (null) markera det med "okänd" i strängen. Exempel: "Fredrik Johansson - Mamma: okänd - Pappa: Göran Johansson"
-    public string GetSelfAndParents()
+    public string GetSelfAndParents() //7.
     {
-        // ??
-        // If mamma är null = skriv ut mammans namn som null
-        //
+        if (this.father == null)
+        {
+            return $"{this.GetFullName()} - Mamma: {this.mother.GetFullName()} - Pappa: okänd";
+        }
 
-        return $"{this.GetFullName()} - Mamma: {this.mother.GetFullName()} - Pappa: {this.father.GetFullName()}";
+        else if (this.mother == null)
+        {
+            return $"{this.GetFullName()} - Mamma: okänd - Pappa: {this.father.GetFullName()}";
+        }
+
+        else
+        {
+            return $"Jag: {this.GetFullName()} - Mamma: {this.mother.GetFullName()} - Pappa: {this.father.GetFullName()}";
+        }
 
     }
 
-   
+    public double GetLength() //8.
+    {
+        return length;
+    }
+
+    public void SetLength(double length) //8.
+    {
+        this.length = length;
+    }
+
+    public double GetWeight() //returnera vikten som sätts i SetWeight
+    {
+        return weight;
+    }
+
+    public void SetWeight(double weight) // Sätt personens vikt
+    {
+        this.weight = weight;
+    }
+
+    public double GetBMI() //returnera personens bmi
+    {
+        double bmi = (this.weight) / (Math.Pow(2,this.length));
+        return bmi;
+    }
+
+    
 
 }
+
+//9. Vikt och BMI
+//Gör motsvarande för Vikt, alltså ett privat fält med publika metoder: double GetWeight() och void SetWeight(double weight).
+//Gör sedan även en publik metod double GetBMI() som returnerar personens BMI. Detta ska dock inte finnas representerat som en private field.
 
 
 // 1. Skriva ut namn på personer
@@ -116,3 +167,10 @@ class Person
 // Lägg till en public string GetSelfAndParents() som returnerar en sträng på formatet
 // "Ditt Namn - Mamma: Mammans Namn - Pappa: Pappans namn". Om mammans eller pappans namn
 // saknas (null) markera det med "okänd" i strängen. Exempel: "Fredrik Johansson - Mamma: okänd - Pappa: Göran Johansson"
+
+// 8.
+// Uppdatera klassen med ett fält, private double length, som kan lagra längden på personen.
+// Eftersom denna är markerad som private kommer man inte kunna läsa/skriva denna utanför klassen.
+// Lägg därför till en metod void SetLength(double length) som sätter värdet på det privat fältet length,
+// samt en double GetLength() som returnerar värdet på fältet length.
+//När du är klar ska följande kod ge utskriften: 1.82
