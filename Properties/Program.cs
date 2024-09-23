@@ -14,12 +14,62 @@
 // Testa koden genom att skapa ett objekt, tilldela värden på både
 // FirstName och LastName, och sedan skriva ut FullName.
 
+// 4. Stegräknare
+//Skapa en klass som kan användas som stegräknare. Den ska ha en property "Steps" som bara går att läsa;
+//en metod Step() som räknar upp Steps med 1 varje gång man anropar den;
+//och en metod Reset() som nollställer räknaren.
+
+//Instantiera klassen och skriv en loop som motsvarar att man går 1000 steg. Skriv ut värdet på Steps.
+
 
 Person myPerson = new Person();
 myPerson.FirstName = "Jesper"; //1.
 myPerson.LastName = "Stranne"; //2.
 
 Console.WriteLine($"{myPerson.FullName}");
+
+Console.WriteLine("**** UPPGIFT 4 *****");
+
+StepCounter myStepCounter = new StepCounter();
+
+for ( int i = 0; i < 1010; i++ )
+{
+    myStepCounter.Step();
+    Console.WriteLine($"{myStepCounter.Steps}");
+}
+
+
+class StepCounter
+{
+    private int _steps;
+    public int Steps // Property Steps (Read-only)
+    {
+        get
+        {
+            return _steps;
+        }
+    }
+
+    public void Step()
+    {
+
+        _steps++;
+
+        if ( _steps == 1001 )
+        {
+            Reset();
+        }
+        
+    }
+
+    public void Reset()
+    {
+        _steps = 0;
+        
+        Console.WriteLine("RESET!");
+    }
+    
+}
 
 class Person
 {
