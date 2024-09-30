@@ -2,7 +2,11 @@
 //Funktioner02("Jesper" , "Alveberg");
 //Funktioner03("Hejsan", 5);
 //Funktioner04();
-
+//Funktioner05();
+//Funktioner06();
+//Funktioner07();
+//Funktioner08();
+Funktioner10();
 
 
 // 1. Slå ihop för- och efternamn - skriv ut
@@ -73,7 +77,144 @@ static void Funktioner04()
     Console.WriteLine($"20 celcius är {CelciusToFahrenheit(20)} fahrenheit");
     Console.WriteLine($"40.3 celcius är {CelciusToFahrenheit(40.3)} fahrenheit");
     Console.WriteLine($"-20.5 celcius är {CelciusToFahrenheit(-20.5)} fahrenheit");
+   
 }
 
+//5. Gör ett bindestreck mellan varje karaktär i name
+static void Funktioner05()
+{
 
+    Lines("Jesper"); // Kallar på metoden Lines med en parameter för string name
+
+    static string Lines(string name)
+    {
+
+        name.ToCharArray(); // Omvandlar string till en char array innehållandes alla bokstäver
+
+        foreach (char c in name)
+        {
+            Console.Write(c);
+            Console.Write("-");
+        }
+
+        return name;
+    }
+}
+
+//6. Egen version av String.Join();
+static void Funktioner06()
+{
+    static string MyJoin(string joiner, params string[] inputs)
+    {
+        string joinedString = "";
+        for (int i = 0; i < inputs.Length; i++)
+        {
+            joinedString += (i != inputs.Length - 1) ? inputs[i] + joiner : inputs[i];
+        }
+        return joinedString;
+    }
+
+    Console.WriteLine(MyJoin("->", "Jesper", "Axel", "Mikael", "Alveberg", "Johansson"));
+    Console.WriteLine(MyJoin(" <-> ", "Jag", "kanske", "kan", "skriva", "koden", "lite", "enklare"));
+}
+
+static void Funktioner07()
+{
+
+    static double MiddleValue(int[] value)
+    {
+        double sum = 0;
+        foreach(int number in value) 
+        {
+            sum += number;
+        }
+        return sum / value.Length;
+    }
+
+    Console.WriteLine($"Medelvärdet är: {MiddleValue([10, 9, 3, 20, -2])}");
+
+}
+
+//8. Siffror till text
+// Skriv en funktion som tar ett heltal in, och returnerar en string[]
+// där varje element innehåller ordet för varje siffra i talet.
+static void Funktioner08()
+{
+
+    static string[] DigitToWords(int number)
+    {
+        // Array med ord för varje siffra
+        string[] digitWords = { "noll", "ett", "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio", };
+
+        // Konverterar talet till en sträng för att enkelt iterera över varje siffra
+        string numberToString = number.ToString();
+        string[] result = new string[numberToString.Length];
+
+        // För varje siffra, hämta motsvarande ord
+        for(int i = 0; i < numberToString.Length; i++)
+        {
+            int digit = int.Parse(numberToString[i].ToString());
+            result[i] = digitWords[digit];
+        }
+
+        return result;
+    }
+
+    int number = 12345; // Exempel på ett tal
+
+    // Anropa funktionen och få tillbaka strängarrayen
+    string[] words = DigitToWords(number);
+
+    // skriv ut varje element
+    foreach (string word in words) 
+    {
+        Console.Write(word + " ");    
+    }
+
+    Console.WriteLine(); // Ny rad efter utskrift
+
+}
+
+// 10. Hitta index för alla förekomster av ett givet tecken
+// Skapa funktionen int[] IndexesOf(string text, char c) som
+// söker igenom strängen text och returnerar en int[] med index
+// till alla förekomster av c i text.
+
+static void Funktioner10()
+{
+
+    static int[] IndexesOf(string text, char c)
+    {
+        // Lista för att lagra alla index där tecknet förekommer
+        List<int> indexes = new List<int>();
+
+        // Loopa igenom varje tecken i strängen
+        for (int i = 0; i < text.Length; i++)
+        {
+            // Om tecknet vid index (i) matchar det vi letar efter, lägg till index i listan
+            if (text[i] == c)
+            {
+                indexes.Add(i);
+            }
+        }
+        
+        // Konvertera listan till en array och returnera den
+        return indexes.ToArray();
+    }
+
+    string text = "programmering är roligt"; // Exempelsträng
+    char c = 'r'; // Tecknet vi letar efter
+
+    // Anropa funktionen och få tillbaka arrayen med index
+    int[] indexes = IndexesOf(text, c);
+
+    // Skriv ut varje index
+    Console.WriteLine("Tecknet '{0}' hittades på index:", c);
+    foreach (int index in indexes)
+    {
+        Console.WriteLine(index);
+    }
+
+
+}
 
