@@ -1,0 +1,45 @@
+﻿<Window x:Class="_8._Formulär_för_studenter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_8._Formulär_för_studenter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid ShowGridLines="False">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Column="0" Content="Students:" Margin="10"/>
+        <ListBox x:Name="myListbox" Grid.Column="0" Margin="15,45,0,10" Visibility="Visible" HorizontalAlignment="Left" Width="350"/>
+
+        <StackPanel x:Name="stackpanelLeft" Grid.Column="0" Margin="15,45,0,10">
+            
+        <!--<ListBoxItem x:Name="student1"/>
+        <ListBoxItem x:Name="student2"/>-->
+            
+        </StackPanel>
+
+        <StackPanel x:Name="stackpanelRight" Grid.Column="1" Margin="20,45,20,20">
+            <Label Content="Firstname:" Margin="-40,5,5,0" HorizontalAlignment="Center"/>
+            <TextBox x:Name="textboxFirst" HorizontalAlignment="Center" MinWidth="100" MaxWidth="100" ToolTip="Enter your firstname"/>
+
+            <Label Content="Lastname:" Margin="-40,5,5,0" HorizontalAlignment="Center"/>
+            <TextBox x:Name="textboxLast" HorizontalAlignment="Center" MinWidth="100" MaxWidth="100" ToolTip="Enter your lastname"/>
+
+            <Label Content="Email:" Margin="-60,5,5,0" HorizontalAlignment="Center"/>
+            <TextBox x:Name="textboxEmail" HorizontalAlignment="Center" MinWidth="100" MaxWidth="100" ToolTip="Enter your email"/>
+
+            <Button x:Name="registerButton"
+                    Content="OK" 
+                    Margin="15" 
+                    Width="50" 
+                    HorizontalAlignment="Center"
+                    Click="registerButton_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

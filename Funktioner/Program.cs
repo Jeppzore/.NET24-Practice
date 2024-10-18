@@ -6,7 +6,9 @@
 //Funktioner06();
 //Funktioner07();
 //Funktioner08();
-Funktioner10();
+//Funktioner10();
+//Funktioner11();
+Funktioner12();
 
 
 // 1. Slå ihop för- och efternamn - skriv ut
@@ -214,6 +216,51 @@ static void Funktioner10()
     {
         Console.WriteLine(index);
     }
+
+
+}
+
+// 11. Kasta tärning
+// Skriv en funktion ThrowDice() som returnerar ett slumpmässigt heltal 1-6.
+// Skriv en annan funktion ThrowMultipleDice(int n) som returnerar resultatet av att man slagit n tärningar.
+
+static void Funktioner11()
+{
+    Random randSides = new Random();
+    Random randBigSides = new Random();
+
+    Console.WriteLine("Normdal Dice");
+    Console.WriteLine(ThrowDice(1));
+    Console.WriteLine(ThrowDice(2));
+
+    Console.WriteLine();
+
+    Console.WriteLine("Big Dice:");
+    Console.WriteLine(ThrowBigDice(1,24));
+    Console.WriteLine(ThrowBigDice(1,24));
+    Console.WriteLine(ThrowBigDice(1,24));
+
+
+    int ThrowDice(int diceThrows)
+    {
+
+        int result = diceThrows *= randSides.Next(1, 7);
+        return result;
+
+    }
+
+    int ThrowBigDice(int diceThrows, int sidesPerDice)
+    {
+
+        int result = diceThrows *= randBigSides.Next(1, sidesPerDice);
+        return result;
+
+    }
+
+}
+
+static void Funktioner12()
+{
 
 
 }

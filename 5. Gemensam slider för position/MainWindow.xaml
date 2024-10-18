@@ -1,0 +1,34 @@
+﻿<Window x:Class="_5._Gemensam_slider_för_position.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_5._Gemensam_slider_för_position"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="100">
+        <StackPanel HorizontalAlignment="Center" Height="200" Width="200">
+
+            <Label x:Name="myLabelPositionX" Content="x = 0" HorizontalAlignment="Center"/>
+            <Label x:Name="myLabelPositionY" Content="y = 0" HorizontalAlignment="Center"/>
+
+
+            <Label Content="Change x and y position:" HorizontalAlignment="Center"/>
+            <Slider x:Name="sliderXY"
+                    Minimum="0"
+                    Maximum="100"
+                    ValueChanged="sliderXY_ValueChanged"/>
+
+            <CheckBox x:Name="checkboxX"
+                      Content="Lock x-value" HorizontalAlignment="Center"
+                      Margin="5"
+                      IsChecked="False"/>
+
+            <CheckBox x:Name="checkboxY"
+                      Content="Lock y-value" HorizontalAlignment="Center"
+                      Margin="5"
+                      IsChecked="False"/>
+        </StackPanel> 
+        
+    </Grid>
+</Window>
