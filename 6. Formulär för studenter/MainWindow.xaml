@@ -13,15 +13,32 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Column="0" Content="Students: (ctrl + left-click to de-select student" Margin="10"/>
-        <ListBox x:Name="myListbox" 
+        <Label Grid.Column="0" Content="Students: (ctrl + left-click to de-select student" Margin="25,40,0,0"/>
+        <ListBox x:Name="myListbox"
                  Grid.Column="0" 
-                 Margin="15,45,0,10" 
+                 Margin="25,65,0,10" 
                  Visibility="Visible" 
                  HorizontalAlignment="Left" 
                  Width="350"
                  SelectionMode="Extended"
-                 SelectionChanged="myListbox_SelectionChanged"/>
+                 SelectionChanged="myListbox_SelectionChanged">
+
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="contextAdd" 
+                              Header="Add student"
+                              Click="contextAdd_Click"/>
+                    
+                    <MenuItem x:Name="contextRemove" 
+                              Header="Remove student"
+                              IsEnabled="False"
+                              Click="contextRemove_Click"/>
+                </ContextMenu>
+            </ListBox.ContextMenu>
+            
+        </ListBox>
+     
+
 
 
         <StackPanel x:Name="stackpanelLeft" Grid.Column="0" Margin="15,45,0,10">
@@ -52,6 +69,27 @@
                     Click="buttonRemove_Click"/>
 
         </StackPanel>
+
+        <DockPanel Grid.Column="0" Height="20" VerticalAlignment="Top">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem x:Name="menuExit"
+                              Header="_Exit"
+                              Click="MenuItem_Click" />
+                </MenuItem>
+                <MenuItem Header="_Edit">
+                    <MenuItem x:Name="menuAdd" 
+                              Header="_Add student"
+                              Click="menuAdd_Click"/>
+                    <Separator />
+                    <MenuItem x:Name="menuRemove" 
+                              Header="_Remove student"
+                              IsEnabled="False"
+                              Click="menuRemove_Click"/>
+                </MenuItem>
+            </Menu>
+            <TextBox AcceptsReturn="True" />
+        </DockPanel>
 
     </Grid>
 </Window>

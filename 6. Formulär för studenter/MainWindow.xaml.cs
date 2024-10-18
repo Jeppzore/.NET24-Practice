@@ -39,10 +39,14 @@ namespace _6._Formulär_för_studenter
                 textboxLast.Text = $"{selectedStudent.LastName}";
                 textboxEmail.Text = $"{selectedStudent.Email}";
                 buttonRemove.IsEnabled = true;
+                menuRemove.IsEnabled = true;
+                contextRemove.IsEnabled = true;
             }
             else if (selectedStudent == null)
             {
                 buttonRemove.IsEnabled = false;
+                menuRemove.IsEnabled = false;
+                contextRemove.IsEnabled = false;
                 textboxFirst.Text = $" ";
                 textboxLast.Text = $" ";
                 textboxEmail.Text = $" ";
@@ -100,6 +104,43 @@ namespace _6._Formulär_för_studenter
         }
 
         private void buttonRemove_Click(object sender, RoutedEventArgs e)
+        {
+            Student? selectedStudent = myListbox.SelectedItem as Student;
+
+            if (selectedStudent != null)
+            {
+                myListbox.Items.Remove(selectedStudent);
+            }
+        }
+
+        // Closes the program / Window
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void menuAdd_Click(object sender, RoutedEventArgs e)
+        {
+            myListbox.Items.Add(new Student(textboxFirst.Text, textboxLast.Text, textboxEmail.Text));
+        }
+
+        private void menuRemove_Click(object sender, RoutedEventArgs e)
+        {
+            Student? selectedStudent = myListbox.SelectedItem as Student;
+
+            if (selectedStudent != null)
+            {
+                myListbox.Items.Remove(selectedStudent);
+            }
+        }
+
+        private void contextAdd_Click(object sender, RoutedEventArgs e)
+        {
+            myListbox.Items.Add(new Student(textboxFirst.Text, textboxLast.Text, textboxEmail.Text));
+
+        }
+
+        private void contextRemove_Click(object sender, RoutedEventArgs e)
         {
             Student? selectedStudent = myListbox.SelectedItem as Student;
 

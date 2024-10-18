@@ -67,7 +67,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "4. Label med valbar positio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "5. Gemensam slider för position", "5. Gemensam slider för position\5. Gemensam slider för position.csproj", "{AF6268A0-25E8-4124-A19F-8C91D3F7CC8D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "6-7. Formulär för studenter", "6. Formulär för studenter\6-7. Formulär för studenter.csproj", "{1BDFE13A-68DD-46F2-B9C0-E38B5C3E50E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "6-9. Formulär för studenter", "6. Formulär för studenter\6-9. Formulär för studenter.csproj", "{1BDFE13A-68DD-46F2-B9C0-E38B5C3E50E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
