@@ -69,6 +69,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "5. Gemensam slider för pos
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "6-9. Formulär för studenter", "6. Formulär för studenter\6-9. Formulär för studenter.csproj", "{1BDFE13A-68DD-46F2-B9C0-E38B5C3E50E8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dialogrutor", "Dialogrutor", "{B16F8BC8-FB20-4427-A77E-6E6637A3F59A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. Meddelande vid uppstart", "1. Meddelande vid uppstart\1. Meddelande vid uppstart.csproj", "{7912323C-7988-4F1A-96F7-F4985BB8FE09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. Fråga vid avslut", "2. Fråga vid avslut\2. Fråga vid avslut.csproj", "{40560140-458E-4CAA-A499-EA95A8381630}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3. App för att öppna och visa textfiler", "3. App för att öppna och visa textfiler\3. App för att öppna och visa textfiler.csproj", "{03BF7ADB-5E06-4DA5-9922-8FFACF821DB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -163,6 +171,18 @@ Global
 		{1BDFE13A-68DD-46F2-B9C0-E38B5C3E50E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BDFE13A-68DD-46F2-B9C0-E38B5C3E50E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BDFE13A-68DD-46F2-B9C0-E38B5C3E50E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7912323C-7988-4F1A-96F7-F4985BB8FE09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7912323C-7988-4F1A-96F7-F4985BB8FE09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7912323C-7988-4F1A-96F7-F4985BB8FE09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7912323C-7988-4F1A-96F7-F4985BB8FE09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40560140-458E-4CAA-A499-EA95A8381630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40560140-458E-4CAA-A499-EA95A8381630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40560140-458E-4CAA-A499-EA95A8381630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40560140-458E-4CAA-A499-EA95A8381630}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03BF7ADB-5E06-4DA5-9922-8FFACF821DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03BF7ADB-5E06-4DA5-9922-8FFACF821DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03BF7ADB-5E06-4DA5-9922-8FFACF821DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03BF7ADB-5E06-4DA5-9922-8FFACF821DB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -192,6 +212,10 @@ Global
 		{C6327E79-9787-4ADD-96F8-ADB85AC73E53} = {95AB44C3-82AE-4EA8-801E-C52703E7A877}
 		{AF6268A0-25E8-4124-A19F-8C91D3F7CC8D} = {95AB44C3-82AE-4EA8-801E-C52703E7A877}
 		{1BDFE13A-68DD-46F2-B9C0-E38B5C3E50E8} = {95AB44C3-82AE-4EA8-801E-C52703E7A877}
+		{B16F8BC8-FB20-4427-A77E-6E6637A3F59A} = {69A706ED-71B5-4E95-8607-82B9755E8248}
+		{7912323C-7988-4F1A-96F7-F4985BB8FE09} = {B16F8BC8-FB20-4427-A77E-6E6637A3F59A}
+		{40560140-458E-4CAA-A499-EA95A8381630} = {B16F8BC8-FB20-4427-A77E-6E6637A3F59A}
+		{03BF7ADB-5E06-4DA5-9922-8FFACF821DB0} = {B16F8BC8-FB20-4427-A77E-6E6637A3F59A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {867A7F58-2E0A-4A3F-9589-C76CFC0992F5}
